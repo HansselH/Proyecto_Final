@@ -111,21 +111,22 @@ public class Productos {
         try {
             cn = new Conexion();
             cn.abrirConexion();
-            String query = "SELECT p.id_producto as id,p.producto,p.descripcion,p.imagen,p.precio_costo,p.precio_venta,p.existencia,p.fecha_ingreso,p.id_marca FROM productos as p inner join marcas as m on m.id_marca = p.id_marca;";
+            String query = "SELECT e.id_producto as id,e.producto,p.marca,p.id_marca,e.descripcion,e.imagen,e.precio_costo,e.precio_venta,e.existencia,e.fecha_ingreso FROM productos as e inner join marcas as p on e.id_marca = p.id_marca;";
             ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-            String encabezado[] = {"id", "producto", "descripcion", "imagen", "precio_costo", "precio_venta", "existencia", "fecha_ingreso", "id_marca"};
+            String encabezado[] = {"id", "producto","marca","id_marca","descripcion", "imagen", "precio_costo", "precio_venta", "existencia", "fecha_ingreso"};
             tabla.setColumnIdentifiers(encabezado);
-            String datos[] = new String[9];
+            String datos[] = new String[10];
             while (consulta.next()) {
                 datos[0] = consulta.getString("id");
                 datos[1] = consulta.getString("producto");
-                datos[2] = consulta.getString("descripcion");
-                datos[3] = consulta.getString("imagen");
-                datos[4] = consulta.getString("precio_costo");
-                datos[5] = consulta.getString("precio_venta");
-                datos[6] = consulta.getString("existencia");
-                datos[7] = consulta.getString("fecha_ingreso");
-                datos[8] = consulta.getString("id_marca");
+                datos[2] = consulta.getString("marca");
+                datos[3] = consulta.getString("id_marca");
+                datos[4] = consulta.getString("descripcion");
+                datos[5] = consulta.getString("imagen");
+                datos[6] = consulta.getString("precio_costo");
+                datos[7] = consulta.getString("precio_venta");
+                datos[8] = consulta.getString("existencia");
+                datos[9] = consulta.getString("fecha_ingreso");
                 tabla.addRow(datos);
             }
             cn.cerrarConexion();

@@ -16,9 +16,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
+        <div style="display: flex; justify-content: center;">
         <h1>Formulario Proveedores</h1>
-        
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_proveedor" onclick="limpiar()">Nuevo</button>
+        </div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_proveedor" onclick="limpiar()">Nuevo</button>
         
         <div class="modal" id="modal_proveedor">
             <div class="modal-dialog">
@@ -40,13 +41,11 @@
                             <button name="btn_agregar" id="btn_agregar" value="agregar" class="btn btn-primary">Agregar</button>
                             <button name="btn_modificar" id="btn_modificar" value="modificar" class="btn btn-success">Modificar</button>
                             <button name="btn_eliminar" id="btn_eliminar" value="eliminar" class="btn btn-danger" onclick="javascript:if(!confirm('¿Desea eliminar?'))return false">Eliminar</button>
-                        </form>  
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                            </form>  
                     </div>
                     
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-                           </div>
-                    
+
                 </div>
             </div>
         </div>

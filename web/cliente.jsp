@@ -17,9 +17,11 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
+        <div style="display: flex; justify-content: center;">
         <h1>Formulario Clientes</h1>
-      
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_cliente" onclick="limpiar()">Nuevo</button>
+        </div>
+        
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_cliente" onclick="limpiar()">Nuevo</button>
   
   <div class="modal" id="modal_cliente">
   <div class="modal-dialog">
@@ -33,30 +35,28 @@
                 <input type="text" name="txt_id" id="txt_id" class="form-control" value="0" readonly>
                 <label for="lbl_nombres"><b>Nombres:</b></label>
                 <input type="text" name="txt_nombres" id="txt_nombres" class="form-control" placeholder="Ejemplo: Juan Ovidio" required>
-                <label for="lbl_apellidos"><b>Apellidos:</<b></label>
+                <label for="lbl_apellidos"><b>Apellidos:</b></label>
                 <input type="text" name="txt_apellidos" id="txt_apellidos" class="form-control" placeholder="Ejemplo: Fernandez Mas" required>
-                <label for="lbl_direccion"><b>NIT</<b></label>
+                <label for="lbl_direccion"><b>NIT</b></label>
                 <input type="text" name="txt_NIT" id="txt_NIT" class="form-control" placeholder="Ejemplo: 123456789" required>
-                <label for="lbl_telefono"><b>Genero</<b></label>
+                <label for="lbl_telefono"><b>Genero</b></label>
                 <input type="text" name="txt_genero" id="txt_genero" class="form-control" placeholder="Ejemplo: M/F" required>
-                <label for="lbl_DPI"><b>Telefono</<b></label>
+                <label for="lbl_DPI"><b>Telefono</b></label>
                 <input type="number" name="txt_telefono" id="txt_telefono" class="form-control" placeholder="Ejemplo: 55555" required>
-                <label for="lbl_genero"><b>Email</<b></label>
+                <label for="lbl_genero"><b>Email</b></label>
                 <input type="text" name="txt_email" id="txt_email" class="form-control" required>
-                <label for="lbl_fn"><b>Fecha de Ingreso</<b></label>
+                <label for="lbl_fn"><b>Fecha de Ingreso</b></label>
                 <input type="datetime" name="txt_fecha_i" id="txt_fecha_i" class="form-control" required>
                 
                 <br>
                 <button name="btn_agregar" id="btn_agregar" value="agregar" class="btn btn-primary">Agregar</button>
                 <button name="btn_modificar" id="btn_modificar" value="modificar" class="btn btn-success">Modificar</button>
                 <button name="btn_eliminar" id="btn_eliminar" value="eliminar" class="btn btn-danger" onclick="javascript:if(!confirm('¿Desea eliminar?'))return false">Eliminar</button>
-            </form>  
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>   
+        </form>  
       </div>
 
       <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-      </div>
 
     </div>
   </div>

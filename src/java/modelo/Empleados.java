@@ -148,11 +148,11 @@ public class Empleados {
         try {
             cn = new Conexion();
             cn.abrirConexion();
-            String query = "SELECT e.id_empleado as id,e.nombres,e.apellidos,e.direccion,e.telefono,e.DPI,e.genero,e.fecha_nacimiento,e.fecha_inicio_labores,e.fecha_ingreso,e.id_puesto FROM empleados as e inner join puestos as p on p.id_puesto = e.id_puesto;";
+            String query = "SELECT e.id_empleado as id,e.nombres,e.apellidos,e.direccion,e.telefono,e.DPI,e.genero,e.fecha_nacimiento,p.puesto,p.id_puesto,e.fecha_inicio_labores,e.fecha_ingreso FROM empleados as e inner join puestos as p on e.id_puesto = p.id_puesto;";
             ResultSet consulta = cn.conexionBD.createStatement().executeQuery(query);
-            String encabezado[] = {"id","nombres","apellidos","direccion","telefono","DPI","genero","fecha_nacimiento","fecha_inicio_labores","fecha_ingreso","id_puesto"};
+            String encabezado[] = {"id","nombres","apellidos","direccion","telefono","DPI","genero","fecha_nacimiento","puesto","id_puesto","fecha_inicio_labores","fecha_ingreso"};
             tabla.setColumnIdentifiers(encabezado);
-            String datos[] = new String[11];
+            String datos[] = new String[12];
             while (consulta.next()) {
                 //System.out.println("Id: " + consulta.getString("id"));
                 datos[0] = consulta.getString("id");
@@ -163,10 +163,10 @@ public class Empleados {
                 datos[5] = consulta.getString("DPI");
                 datos[6] = consulta.getString("genero");
                 datos[7] = consulta.getString("fecha_nacimiento");
-                datos[8] = consulta.getString("fecha_inicio_labores");
-                datos[9] = consulta.getString("fecha_ingreso");
-                datos[10] = consulta.getString("id_puesto");
-
+                datos[8] = consulta.getString("puesto");
+                datos[9] = consulta.getString("id_puesto");
+                datos[10] = consulta.getString("fecha_inicio_labores");
+                datos[11] = consulta.getString("fecha_ingreso");
                 tabla.addRow(datos);
             }
             cn.cerrarConexion();

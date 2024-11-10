@@ -19,15 +19,16 @@
 
     </head>
     <body>
+        <div style="display: flex; justify-content: center;">
         <h1>Formulario Productos</h1>
-        
-        <button type="button" class="btn btn-primary">
-            <a href='marca.jsp' style="color: white;" text-decoration: none;>Marcas</a>
+        </div>
+        <button type="button" class="btn btn-warning">
+            <a href='marca.jsp' style="color: white; text-decoration: none;">Marcas</a>
         </button>
         
         <br><br>
         
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_producto" onclick="limpiar()">Nuevo</button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_producto" onclick="limpiar()">Nuevo</button>
 
            <div class="modal" id="modal_producto">
             <div class="modal-dialog">
@@ -41,15 +42,15 @@
                             <label for="lbl_descripcion"><b>Descripcion</b></label>
                             <input type="text" name="txt_descripcion" id="txt_descripcion" class="form-control" placeholder="Ejemplo: descripcion1" required>
                             <label for="lbl_imagen"><b>Imagen</b></label>
-                            <input type="file" name="txt_imagen" id="txt_imagen" class="form-control" placeholder="Ejemplo: .jpg" required>
+                            <input type="file" name="txt_imagen" id="txt_imagen" class="form-control" required>
                             <label for="lbl_precio_c"><b>Precio Costo</b></label>
                             <input type="text" name="txt_precio_c" id="txt_precio_c" class="form-control" placeholder="Ejemplo: 10.01" required>
                             <label for="lbl_precio_v"><b>Precio Venta</b></label>
                             <input type="text" name="txt_precio_v" id="txt_precio_v" class="form-control" placeholder="Ejemplo: 10.01" required>
                             <label for="lbl_existencia"><b>Existencia</b></label>
-                            <input type="text" name="txt_existencia" id="txt_existencia" class="form-control" placeholder="Ejemplo: 1" required>
+                            <input type="text" name="txt_existencia" id="txt_existencia" class="form-control" required>
                             <label for="lbl_fecha_i"><b>Fecha Ingreso</b></label>
-                            <input type="datetime" name="txt_fecha_i" id="txt_fecha_i" class="form-control" placeholder="Ejemplo: 10.01" >
+                            <input type="datetime" name="txt_fecha_i" id="txt_fecha_i" class="form-control" required>
                             <label for="lbl_marca"><b>Marca</b></label>
                             <select name="drop_marca" id="drop_marca" class="form-control">
                                    <option value="" disabled selected>Seleccione una marca</option>
@@ -71,13 +72,11 @@
                             <button name="btn_agregar" id="btn_agregar" value="agregar" class="btn btn-primary">Agregar</button>
                             <button name="btn_modificar" id="btn_modificar" value="modificar" class="btn btn-success">Modificar</button>
                             <button name="btn_eliminar" id="btn_eliminar" value="eliminar" class="btn btn-danger" onclick="javascript:if(!confirm('¿Desea eliminar?'))return false">Eliminar</button>
-                        </form>  
+                            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                            </form>  
                     </div>
                     
-                    <div class="modal-footer">
-                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                    
+                  
                 </div>
             </div>
         </div>
@@ -87,13 +86,14 @@
     <thead>
       <tr>
         <th>Producto</th>
+        <th>Marca</th>
         <th>Descripcion</th>
         <th>Imagen</th>
         <th>Precio Costo</th>
         <th>Precio Venta</th>
         <th>Existencia</th>
         <th>Fecha Ingreso</th>
-        <th>Marca</th>
+ 
       </tr>
     </thead>
     <tbody id="tbl_productos">
@@ -102,16 +102,16 @@
             DefaultTableModel tabla = new DefaultTableModel();
             tabla = productos.leer();
             for (int t=0;t<tabla.getRowCount();t++){
-            out.println("<tr data-id" + tabla.getValueAt(t,0) + "data-id_m=" + tabla.getValueAt(t,8) + ">");
+            out.println("<tr data-id=" + tabla.getValueAt(t,0) + " data-id_m=" + tabla.getValueAt(t,3) + ">");
             out.println("<td>" + tabla.getValueAt(t, 1) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 2) + "</td>");
-            out.println("<td>" + tabla.getValueAt(t, 3) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 4) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 5) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 6) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 7) + "</td>");
             out.println("<td>" + tabla.getValueAt(t, 8) + "</td>");
-
+            out.println("<td>" + tabla.getValueAt(t, 9) + "</td>");
+            out.println("</tr>");
             }
         %>
         </tbody>
